@@ -1,0 +1,27 @@
+<!--  наследуемся от шаблона default.html, который мы создавали для flatpages -->
+{% extends 'docs_free/flatpages/default.html' %}
+
+{% block title %}
+   <style> div { line-height: 1.15; } </style>
+   <div align="left">    
+      <br><b>Выбранная запись</b><br><br>
+   </div>    
+{% endblock title %}
+
+{% block content %}  
+   <style> div { line-height: 1.1; } </style>
+
+   <div align="left">
+     <b>Дата &nbsp;&nbsp;:
+              </b>  {{ userlog_detail.time_in|date:'Y-m-d' }}<br>
+     <b>Время:</b>  {{ userlog_detail.time_in|date:'H:m:s' }}<br><br>
+<!--     <b>Автор:</b>  {{ userlog_detail.user.username }} <br><br>  -->
+     This plate is {{ userlog_detail.resp }} <br>        
+     <img src="{{ userlog_detail.image.url }}"> 
+     <br><br> 
+     
+     <input type="button" onclick="history.back();" value="<< Назад"/>
+     </div>     
+{% endblock content %}
+
+
